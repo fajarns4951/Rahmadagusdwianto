@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Updated Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <title>Hello, world!</title>
+    <style>
+      .custom-card {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 20px;
+        font-weight: 500;
+        font-size: 24px;
+      }
+      .list-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .list-item i {
+        margin-right: 10px;
+        color: #00ff00; /* Adjust the icon color */
+      }
+      .evolution-card {
+        border: 6px solid #fff;
+        border-radius: 30px;
+        padding: 0px 15px;
+        display: inline-block;
+        color: #fff;
+        font-weight: bold;
+      }
+      .evolution1-card {
+        border-radius: 30px;
+        padding: 0px 15px;
+        display: inline-block;
+        color: #fff;
+        font-weight: bold;
+      }
+      .cta-button {
+        background-color: #09ac45;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px 48px;
+        border-radius: 30px;
+        display: inline-block;
+        margin-top: 15px;
+        font-size: 32px;
+        border: 4px solid white;
+      }
+      .h-sec4 {
+        font-weight: 900;
+        background-color: #ffffff;
+        padding: 0px 25px;
+        font-size: 32px;
+        display: inline-block;
+        border-radius: 24px;
+      }
+      .image1 {
+        border-top-right-radius: 30px;
+        display: inline-block;
+        padding: 8px 15px;
+        font-size: 40px;
+        line-height: 35px;
+        font-weight: 900;
+        -webkit-text-stroke: white 2px;
+        text-shadow: 0px 0px 15px rgb(31, 31, 31);
+      }
+      .image {
+        border-radius: 30px;
+        display: inline-block;
+        background-color: #a80707;
+        color: white;
+        padding: 0px 15px;
+        font-size: 32px;
+        font-weight: bold;
+        margin-top: -10px;
+      }
+      .gallery-container {
+        max-width: 600px;
+        margin: 0 auto; /* Center the container */
+      }
+      .card img {
+        height: 200px;
+        object-fit: cover;
+      }
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: black; /* Change button background color */
+        width: 30px;
+        height: 30px;
+        border-radius: 50%; /* Make it a circle */
+      }
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 5%; /* Adjust width of the button area */
+      }
+      .whatsapp-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #25d366;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .whatsapp-icon img {
+        width: 35px;
+        height: 35px;
+      }
+      .image-container {
+        position: relative; /* Membuat container menjadi relatif agar pseudo-elemen bisa diposisikan */
+      }
+
+      .image-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50%; /* Ubah sesuai kebutuhan untuk menentukan seberapa jauh efek transparansi */
+        background: linear-gradient(
+          to bottom,
+          rgb(255, 255, 255),
+          rgba(248, 245, 245, 0)
+        );
+        z-index: 1; /* Pastikan efek transparansi ada di atas gambar */
+        pointer-events: none; /* Menghindari elemen ini menghalangi klik */
+      }
+
+      .image-container img {
+        position: relative;
+        z-index: 0; /* Pastikan gambar ada di bawah pseudo-elemen */
+      }
+      .divsec1 {
+        border: #130b02 solid;
+        display: inline-block;
+        border-radius: 24px;
+        z-index: 1;
+        position: relative;
+      }
+      .namasec1 {
+        background-color: #130b02;
+        color: white;
+        display: inline-block;
+        border-radius: 24px;
+        padding: 10px 15px;
+        margin-bottom: 0px;
+        border: white solid;
+      }
+      .undername {
+        margin-top: -12px;
+      }
+      .undername b {
+        background-color: #ec2323;
+        color: white;
+        display: inline-block;
+        border-radius: 16px;
+        padding: 0px 15px;
+        position: relative;
+        z-index: 2;
+      }
+      .title-first {
+        font-weight: 900;
+        font-size: 48px;
+        z-index: 0;
+        text-shadow: 2px 2px 5px rgb(109, 109, 109);
+        -webkit-text-stroke: 1px white;
+      }
+      .section1 {
+        margin-top: -30px;
+        background-image: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.699),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url(assets/utama.PNG);
+        height: 550px;
+      }
+
+      .name1 {
+        display: inline-block;
+        border: #130b02;
+      }
+
+      .name1 h3 {
+        background-color: #e21818;
+        color: white;
+        display: inline-block;
+        border-radius: 32px;
+        padding: 5px 20px;
+        margin-bottom: 0px;
+        border: white solid;
+        z-index: 0;
+      }
+      .bersama h4 {
+        background-color: #130b02;
+        color: white;
+        display: inline-block;
+        border-radius: 24px;
+        padding: 0px 10px;
+        margin-bottom: -7px;
+        border: white solid;
+        z-index: 1;
+      }
+
+      .divsec2 {
+        border-radius: 32px;
+        border: 8px #e21818 solid;
+        width: 500px;
+        margin: auto;
+      }
+      .divsec3 {
+        border-top-right-radius: 21px;
+        border-top-left-radius: 21px;
+        background-color: #e21818;
+        color: white;
+      }
+      .sec3 {
+        background-image: url(assets/background.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+      .sec3 h3 {
+        font-weight: bold;
+        font-size: 40px;
+      }
+      .sec3 p {
+        font-size: 24px;
+      }
+      .div-image {
+        border-radius: 24px;
+        border: 6px white solid;
+      }
+      .sec4 h3 {
+        font-weight: 900;
+        font-size: 40px;
+        color: #e21818;
+        text-shadow: 2px 2px 5px rgb(131, 131, 131);
+        -webkit-text-stroke: 1px white;
+      }
+      .sec4 p {
+        font-size: 24px;
+      }
+      .konsultasi {
+        border-radius: 32px;
+        width: 500px;
+        margin: auto;
+      }
+      .sec5 {
+        background-color: #a90707;
+        color: white;
+      }
+      .div-sec5 {
+        border-radius: 32px;
+        width: 500px;
+        margin: auto;
+      }
+      .sec6 {
+        background-color: #2c2823;
+        background-image: url(assets/bglaptop.jpg);
+        background-blend-mode: overlay;
+        background-size: cover;
+        background-position: center;
+      }
+      .div.sec6 {
+        font-weight: 900;
+        color: #a80707;
+        font-size: 46px;
+        -webkit-text-stroke: white 2px;
+      }
+
+      .praktisi h3 {
+        background-color: black;
+        color: white;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        padding: 3px 20px;
+        font-size: large;
+        margin-top: 16px;
+        font-weight: bold;
+      }
+      .judul {
+        border: #aaa6a6 solid;
+        display: inline-block;
+        border-radius: 24px;
+        z-index: 1;
+        position: relative;
+      }
+      .judul h5 {
+        background-color: #a80707;
+        color: white;
+        display: inline-block;
+        border-radius: 24px;
+        padding: 10px 15px;
+        margin-bottom: 0px;
+        border: white solid;
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .sec8 {
+        background-color: #2c2823;
+        background-image: url(assets/bglaptop.jpg);
+        background-blend-mode: overlay;
+        background-size: cover;
+      }
+      .div-sec8 {
+        font-weight: 900;
+        color: #a80707;
+        font-size: 46px;
+        -webkit-text-stroke: #ffffff 2px;
+      }
+      .sec9 p {
+        font-size: 32px;
+        font-weight: 500;
+      }
+      .sec9 img {
+        border: 8px solid #ffffff;
+        border-radius: 180px;
+      }
+      /* @media screen and (max-width: 600) {
+        .name1 h3 {
+        background-color: #e21818;
+        color: white;
+        display: inline-block;
+        border-radius: 32px;
+        padding: 5px 20px;
+        margin-bottom: 0px;
+        border: white solid;
+        z-index: 0;
+      }
+      .bersama h4 {
+        background-color: #130b02;
+        color: white;
+        display: inline-block;
+        border-radius: 24px;
+        padding: 0px 10px;
+        margin-bottom: 0px;
+        border: white solid;
+        z-index: 1;
+      } */
+    </style>
+  </head>
+  <body style="max-width: 600px; width: 600px; margin: 0 auto" class="bg-light">
+    <div style="background-color: white">
+      <!-- Section -->
+      <section class="container-fluid">
+        <div class="text-center mt-2">
+          <div class="divsec1">
+            <h5 class="shadow namasec1">
+              Dr. Rahmad Agus Dwianto, S.E., M.M., M.I.P.
+            </h5>
+          </div>
+        </div>
+        <div class="text-center undername">
+          <b class="shadow">Konsultan Bisnis dan Digital Marketing</b>
+        </div>
+        <h1 class="text-center m-4 title-first">
+          START AND GROW <br />YOUR BUSINESS
+        </h1>
+      </section>
+      <!-- Section end -->
+
+      <!-- Section 1 -->
+      <section
+        class="d-flex justify-content-center align-items-center flex-column section1"
+      >
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <div class="text-center">
+          <div class="bersama">
+            <h4 class="shadow">Bersama</h4>
+          </div>
+          <div class="name1">
+            <h3 class="">Dr. Rahmad Agus Dwianto, S.E., M.M., M.I.P.</h3>
+          </div>
+        </div>
+      </section>
+      <!-- Section 1 end -->
+
+      <!-- Section 2-->
+      <section class="my-4">
+        <div class="card divsec2">
+          <div class="divsec3">
+            <h1 class="text-center mb-4">
+              Cocok untuk Anda Yang <br />
+              Sedang Mengalami
+            </h1>
+          </div>
+          <div class="d-flex justify-content-start">
+            <div class="custom-card">
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                Bingung ingin membawa brand kemana
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                Bingung platform mana yang harus digunakan
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>Tidak
+                punya teman yang diajak konsultasi secara mendalam
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                Punya banyak produk tapi bingung mana yang harus difokuskan
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                Atau memiliki kekhawatiran lain mengenai bisnis & pemasaran
+                online
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section 2 end -->
+      <!-- Section 3 -->
+      <section class="text-center sec3">
+        <br />
+        <h3 class="text-center mb-4">
+          Anda Pastinya Sudah <br />
+          Tahu Fakta Ini!
+        </h3>
+        <p class="mx-5">
+          Penggunaan internet dari tahun ke tahun selalu mengalami kenaikan di
+          Indonesia. Hal ini tidak terjadi begitu saja. Sarana dan prasarana
+          yang memungkinkan membuat persebaran internet semakin luas. Kemudian
+          banyaknya media sosial semakin mendukung penggunaan internet menjadi
+          lebih besar.
+        </p>
+        <div class="card mt-5 mx-5 shadow div-image">
+          <img
+            src="assets/fakta1.PNG"
+            alt=""
+            style="object-fit: fill; height: 300px; border-radius: 24px"
+          />
+        </div>
+        <div class="card mt-4 mx-5 shadow div-image">
+          <img
+            src="assets/fakta2.PNG"
+            alt=""
+            style="object-fit: fill; height: 300px; border-radius: 24px"
+          />
+        </div>
+        <div class="card mt-4 mx-5 shadow div-image">
+          <img
+            src="assets/fakta3.PNG"
+            alt=""
+            style="object-fit: fill; height: 300px; border-radius: 24px"
+          />
+        </div>
+        <p class="mt-5 mx-5">
+          Dari data-data ini dapat disimpulkan bahwa pengaruh dari media sosial
+          sangatlah besar dan bisa dimanfaatkan untuk promosi bisnis. Jika
+          diperhatikan dengan saksama, saat ini hampir semua bisnis memiliki
+          sosial media lebih dari satu untuk memaksimalkan pemasaran bisnisnya.
+        </p>
+        <br />
+        <!-- <a href="#" class="cta-button mb-3 shadow">
+          <i class="fa fa-whatsapp"></i> HUBUNGI KAMI DI SINI
+        </a> -->
+      </section>
+      <!-- Section 3 end -->
+
+      <!-- Section 4 -->
+      <section class="container text-center my-5 sec4">
+        <h3 class="mb-5">Kenapa Bisnis dan Digital Marketing Berkaitan?</h3>
+        <div
+          class="card shadow text-start border border-light"
+          style="border-radius: 32px; width: 500px; margin: auto"
+        >
+          <div class="d-flex justify-content-start">
+            <div class="custom-card">
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                Dapat membangun reputasi bisnis di semua platform digital
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                Meningkatkan brand awareness agar dikenal lebih banyak audience
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i
+                >Mempertahankan bisnis secara online agar lebih berkembang dan
+                maju
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mt-4 mx-5">
+          Tapi sebelum itu, Anda perlu melakukan <br />Konsultasi bisnis
+          terlebih dahulu. <br />Dengan Begitu proses pengembangan bisnis
+          menggunakan digital merketing <br />akan menjadi lebih paripurna
+        </p>
+        <br /><br />
+        <h3 class="mb-5">Pentingnya Konsultasi Bisnis Anda</h3>
+        <div class="text-start konsultasi">
+          <div class="d-flex justify-content-start">
+            <div class="custom-card">
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                Mendapatkan stimulator atau dukungan untuk memaksimalkan
+                pendapatan bisnis
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                Memberikan informasi mengenai bagaimana memasarkan produk &
+                melakukan branding
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i
+                >Meningkatkan pertumbuhan bisnis yang sedang dijalankan dengan
+                taktik yang sudah dirancang
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i
+                >Mendapatkan masukan dari sudut pandang lain mengenai & bisa
+                memberikan saran lebih baik
+              </div>
+              <div class="list-item">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>Membantu
+                mengambil peluang baru yang tepat untuk dimaksimalkan sekuatnya
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section 4 end -->
+
+      <!-- Section 5 -->
+
+      <section
+        style="
+          background-image: url(assets/kedua.png);
+          background-position: center;
+          background-size: cover;
+        "
+      >
+        <center>
+          <div class="h-sec4 mt-3">PERKENALKAN</div>
+        </center>
+        <br />
+
+        <!-- Image 2 -->
+        <br /><br /><br /><br /><br /><br />
+        <div class="text-start shadow">
+          <br /><br /><br /><br /><br /><br /><br />
+          <div class="image1">
+            Dr. Rahmad <br />
+            Agus Dwianto, <br />S.E., M.M., M.I.P.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+
+      <section class="sec5">
+        <div class="text-start div-sec5">
+          <div class="d-flex justify-content-start">
+            <div class="custom-card">
+              <div class="list-item">
+                <li></li>
+                Business Owner (10 Bisnis) selama 10 tahun
+              </div>
+              <div class="list-item">
+                <li></li>
+                Praktisi DIgital Marketing selama 6 tahun
+              </div>
+              <div class="list-item">
+                <li></li>
+                Property Investor
+              </div>
+              <div class="list-item">
+                <li></li>
+                Political Marketing Enthusiast (CEO of Digipolitica)
+              </div>
+              <div class="list-item">
+                <li></li>
+                S1-S3 Focused Research on Digital & Political Marketing
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section 5 end -->
+      <!-- Section 6 -->
+      <section class="text-center sec6">
+        <div class="mb-4 div-sec6">JANGAN KHAWATIR!</div>
+        <p style="font-size: 40px; color: white">
+          Anda Akan Dibantu Dari A-Z Untuk Perkembangan Bisnis!
+          <br /><br />
+        </p>
+      </section>
+      <!-- Section 6 end -->
+
+      <!-- Section 7 -->
+      <section>
+        <div>
+          <h1 class="text-center" style="font-weight: 900">
+            Mengapa Memilih <br />
+            Dr Rahmad Agus Dwianto, <br />
+            S.E, M.M, M.I.P.
+          </h1>
+          <br />
+          <!-- Image 1 -->
+          <div class="d-flex mx-5 shadow" style="border-radius: 8px">
+            <div class="flex-shrink-0">
+              <img src="assets/praktisi.PNG" alt="..." />
+            </div>
+            <div class="praktisi">
+              <h3>PRAKTISI</h3>
+              <div>
+                <p style="font-weight: bold" class="mx-4">
+                  Sudah berpengalaman dan merasakan asam manis dalam dunia
+                  bisnis & digital marketing lebih dari 10 tahun.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 2 -->
+          <div class="d-flex mx-5 shadow" style="border-radius: 8px">
+            <div class="flex-shrink-0">
+              <img src="assets/tim.PNG" alt="..." />
+            </div>
+            <div class="praktisi">
+              <h3>TIM PROFESIONAL</h3>
+              <div>
+                <p style="font-weight: bold" class="mx-4">
+                  Dibantu oleh tim profesional yang ahli, kompeten, dan
+                  berpengalaman dalam bidang digital marketing & content
+                  creative.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mt-5"></div>
+
+          <div class="text-center">
+            <h1 style="font-weight: 900">PILIH JASA YANG SESUAI</h1>
+            <div class="text-center mt-5">
+              <div class="judul">
+                <h5 class="shadow">Private Coaching</h5>
+              </div>
+            </div>
+          </div>
+
+          <br />
+          <h3 class="text-center">
+            Konsultasi secara lebih mendalam untuk mendapatkan pemahaman secara
+            maksimal. Anda bisa menanyakan berbagai hal terkait bisnis & digital
+            marketing tanpa sungkan.
+          </h3>
+
+          <div class="text-center mt-5">
+            <div class="judul">
+              <h5 class="shadow">Company Coaching</h5>
+            </div>
+          </div>
+
+          <br />
+          <h3 class="text-center">
+            Membantu perusahaan-perusahaan mendapatkan rencana terbaik dan
+            konsultasi yang lebih intens untuk bisnis ke depan.
+          </h3>
+
+          <div class="text-center mt-5">
+            <div class="judul">
+              <h5 class="shadow">Speaker/Narasumber</h5>
+            </div>
+          </div>
+
+          <br />
+          <h3 class="text-center">
+            Menjadi narasumber untuk acara-acara seminar/workshop bisnis di
+            berbagai universitas dan lainnya.
+          </h3>
+        </div>
+      </section>
+
+      <!-- Section 7 end -->
+
+      <!-- Section 8 -->
+      <section class="text-center sec8">
+        <div class="mb-4 div-sec8">
+          FOR BUSINESS <br />
+          INQUIRIES
+        </div>
+        <a href="#" class="cta-button mb-3 shadow">
+          <i class="fa fa-whatsapp"></i> CLICK HERE
+        </a>
+      </section>
+      <!-- Section 8 end -->
+
+      <!-- Section 9 -->
+      <section class="sec9">
+        <div class="saran">
+          <h1 class="text-center mt-5" style="font-weight: 900">
+            SANGAT COCOK UNTUK
+          </h1>
+          <br />
+          <!-- Image 1 -->
+          <div class="d-flex justify-content-center">
+            <img class="shadow" src="assets/human1.jpg" alt="" width="300px" />
+          </div>
+          <div class="text-center">
+            <div class="image">Business Owner</div>
+            <p class="mx-5 mt-3">
+              Punya bisnis tapi masih <br />
+              cara konvesional
+            </p>
+          </div>
+          <!-- Image 2 -->
+          <div class="d-flex justify-content-center mt-5">
+            <img class="shadow" src="assets/human2.jpeg" alt="" width="300px" />
+          </div>
+          <div class="text-center">
+            <div class="image">Entrepreneur</div>
+            <p class="mx-5 mt-3">
+              Ingin go online tapi masih <br />
+              bingung caranya
+            </p>
+          </div>
+          <br />
+          <div class="d-flex justify-content-center mt-5">
+            <img class="shadow" src="assets/human3.jpg" alt="" width="300px" />
+          </div>
+          <div class="text-center">
+            <div class="image">Pebisnis Online</div>
+            <p class="mx-5 mt-3">
+              Ingin memajukan bisnis pakai <br />
+              digital marketing
+            </p>
+          </div>
+          <br />
+        </div>
+        <div class="text-center">
+          <a href="#" class="cta-button mb-3 shadow">
+            <i class="fa fa-whatsapp"></i> CLICK HERE
+          </a>
+        </div>
+      </section>
+      <!-- Section 9 end -->
+      <!-- Whatsapp -->
+      <a href="#" class="whatsapp-icon" target="_blank">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png"
+          alt="WhatsApp"
+        />
+      </a>
+
+      <!-- End Whatsapp -->
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
